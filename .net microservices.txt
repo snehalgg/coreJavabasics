@@ -1,0 +1,128 @@
+.net core is open source and can be used in any os due to msil which is run using clr (runtime)
+
+
+*Namespace is collection of classes and collection of functions and functions are use for performing functionalities
+
+Console.WriteLine
+Here console is a class and writeline is a function and since it is a static function there is no need of calling an object.
+
+
+
+
+Write a program to input marks for any 3 subjects like english, maths, science, find total and average and assign grade based on folowing condition.
+if average>=75
+a grade
+if average >=60<75
+b grade
+if average >=50<60
+cgrade
+otherwise
+no grade
+but grade can be assigned to only those who scores more than 50 marks in every subjects
+
+
+Take an id from the user and display the record else display an error message
+
+
+Create a table in ms sql where Rows are ITEMID, ITEMNAME, RATE
+INsert data:
+ 100, PEN, 100
+ 200, PENCIL, 50
+ 300, BOOK, 500
+ 400, RUBBER, 100
+
+
+Form input, name, id and salary, DA should be 10% of salary, HRA 15% of sal, gross sum of sal + DA+HRA, Tax 5% of gross if gross is more than 50000 else 0, net will be gross - tax
+
+
+
+in asp mvc create a quiz exam where the question table data will be taken from the sql where the table columns are questionid, question, option1, option2 and right answers. and the details are:
+1, What is cube of 3, 9, 27, 27
+2, What is square of 2, 4, 44, 4
+3, What is square root of 25, 5, 77, 5
+
+The First page of quiz exam will take student id and name and at the end will display his/her marks, also no student can re appear for exam and this data will also be in sql so create an sql table first
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FIRSTORDEFAULT
+{
+
+    class Employee
+    {
+        public int Id
+        {
+            get;
+            set;
+        }
+        public string Name
+        {
+            get;
+            set;
+        }
+
+        public static IEnumerable < Employee > GetAllEmp() 
+        {  
+
+    IEnumerable < Employee > developers = new Employee[] 
+    {  
+        new Employee {  
+            Id = 101, Name = "Ashutosh"  
+        },  
+        new Employee {  
+            Id = 102, Name = "Nilesh"  
+        },  
+        new Employee {  
+            Id = 103, Name = "Amar"  
+        },  
+        new Employee {  
+            Id = 104, Name = "Ashutosh"  
+        },  
+        new Employee {  
+            Id = 105, Name = "Ashutosh"  
+        }  
+    };  
+    return developers;  
+}  
+
+
+    }  
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //var emp = Employee.GetAllEmp().Where(x => x.Name == "AmarRRRR").First();
+            //Console.WriteLine(emp.Id + "   " + emp.Name);
+            ////FIRST -if the data is present then first will returns data otherwise will THROW exception
+            ////FIRSTORDEFATULT WILL RETURN NULL AND WILL NOT THROWS EXCEPTION IF THE 
+            ////DATA IS PRESENT IT WILL PRINT THE DATA 
+            var emp1 = Employee.GetAllEmp().Where(x => x.Name == "AmarYYY").FirstOrDefault();
+            if (emp1 == null)
+                Console.WriteLine("no data found");
+            else
+                Console.WriteLine("id is " + emp1.Id + "  Name is    " + emp1.Name);
+
+            ////////var emp11 = Employee.GetAllEmp().Where(x => x.Name == "Amar111").FirstOrDefault();
+            ////////Console.WriteLine(emp11.Id + "   " + emp11.Name);
+            ///////'
+            ///////
+            ////Console.WriteLine("hello");
+
+            Console.ReadKey();
+
+        }
+
+
+        }  
+    }
+
+
+***************
+Important Nuget package
+Ocelot
